@@ -1,1 +1,1 @@
-taken from youareanidiot.cc not mine 
+taken from youareanidiot.cc :3
