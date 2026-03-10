@@ -984,6 +984,7 @@ async function proCreate(count) {
             win.document.write(cloneHTML);
             win.document.close();
         }
+		await new Promise(r => setTimeout(r, 200));
 	}
 }
 
