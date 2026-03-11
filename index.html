@@ -974,7 +974,7 @@ function openWindow(url){let s=Math.min(screen.availWidth/2560,screen.availHeigh
 
 async function proCreate(count) {	
 	for (let i = 0; i < 5; i++) {
-		// openWindow(window.location.pathname);
+		openWindow(window.location.pathname);
         const cloneHTML = `<base href="${window.location.href}">${document.documentElement.outerHTML}`;
         const win = window.open('about:blank', '_blank');
         if (win) {
