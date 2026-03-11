@@ -7,4 +7,3 @@ i made this for people who want to troll their friends directlu if the network d
 
 
 262 kb per call i think
-:3
