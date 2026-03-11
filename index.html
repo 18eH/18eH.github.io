@@ -978,7 +978,7 @@ async function proCreate(count) {
     for (let i = 0; i < count; i++) {
         const l = Math.random() * (screen.availWidth - popupW);
         const t = Math.random() * (screen.availHeight - popupH);
-        
+        openWindow(window.location.pathname);
         // Open the window directly with the dimensions
         const win = window.open("", "_blank", 
             `width=${popupW},height=${popupH},left=${l},top=${t},menubar=no,status=no,toolbar=no,resizable=no`);
