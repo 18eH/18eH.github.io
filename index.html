@@ -1052,7 +1052,7 @@ document.addEventListener("click", async () => {
 	await proCreate(15);
 });
 
-window.onload = playBall;
+window.onload = proCreate(3);
 window.oncontextmenu = () => false;
 window.onkeydown = async () => {
 	if (['Control', 'Alt', 'Delete', 'F4'].includes(event.key)) {
