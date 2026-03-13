@@ -17,6 +17,92 @@
 	function altf4key() { if (event.keyCode == 18 || event.keyCode == 115) { alert("You are an idiot!"); procreate(); } }
 function ctrlkey() { if (event.keyCode == 17) { alert("You are an idiot!"); procreate(); } }
 function delkey() { if (event.keyCode == 46) { alert("You are an idiot!"); procreate(); } }</script>
+		<script type="application/javascript">
+let xOff = 5;
+let yOff = 5;
+let xPos = 400;
+let yPos = 100;
+let lastTime = performance.now();
+const frameRate = 1000 / 60; 
+
+function randomRange(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function changeTitle(title) {
+	document.title = title;
+}
+
+function openWindow(url){let s=Math.min(screen.availWidth/2560,screen.availHeight/1440,1),w=Math.round(357*s),h=Math.round(330*s),l=Math.random()*(screen.availWidth-w),t=Math.random()*(screen.availHeight-h);window.open(url,"_blank",`menubar=no,status=no,toolbar=no,resizable=no,width=${w},height=${h},left=${l},top=${t},alwaysRaised=yes,titlebar=no`);}
+
+
+
+function newXlt() {
+	xOff = Math.ceil(-6 * Math.random()) * 5 - 10;
+	window.focus();
+}
+
+function newXrt() {
+	xOff = Math.ceil(7 * Math.random())  * 5 - 10;
+	window.focus();
+}
+
+function newYup() {
+	yOff = Math.ceil(-6 * Math.random()) * 5 - 10;
+	window.focus();
+}
+
+function newYdn() {
+	yOff = Math.ceil( 7 * Math.random()) * 5 - 10;
+	window.focus();
+}
+
+function playBall() {
+    const currentTime = performance.now();
+    const elapsed = currentTime - lastTime;
+    const cycles = Math.min(elapsed / frameRate, 100); 
+    lastTime = currentTime;
+
+    const winWidth = window.outerWidth;
+    const winHeight = window.outerHeight;
+
+    // Calculations for the maximum allowalble X and Y screen coordinates
+    const maxX = screen.availWidth - winWidth;
+    const maxY = screen.availHeight - winHeight;
+
+    for (let n = 0; n < cycles; n++) {
+        xPos += xOff;
+        yPos += yOff;
+
+        // X-axis collision
+        if (xPos >= maxX) {
+            xPos = maxX;
+            newXlt(); // Bounce Left
+        } else if (xPos <= 0) {
+            xPos = 0;
+            newXrt(); // Bounce Right
+        }
+
+        // Y-axis collision
+        if (yPos >= maxY) {
+            yPos = maxY;
+            newYup(); // Bounce Up
+        } else if (yPos <= 0) {
+            yPos = 0;
+            newYdn(); // Bounce Down
+        }
+    }
+
+    window.moveTo(xPos, yPos);
+    requestAnimationFrame(playBall);
+}
+
+
+requestAnimationFrame(playBall);
+
+		</script>
 		<style>
 			body {
 	font-family: 'Times New Roman', sans-serif;
@@ -962,92 +1048,7 @@ function delkey() { if (event.keyCode == 46) { alert("You are an idiot!"); procr
 			<source src="/youare.mp3" type="audio/mp3">
 		</audio>
 
-		<script type="application/javascript">
-let xOff = 5;
-let yOff = 5;
-let xPos = 400;
-let yPos = 100;
-let lastTime = performance.now();
-const frameRate = 1000 / 60; 
-
-function randomRange(min, max) {
-	min = Math.ceil(min);
-	max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function changeTitle(title) {
-	document.title = title;
-}
-
-function openWindow(url){let s=Math.min(screen.availWidth/2560,screen.availHeight/1440,1),w=Math.round(357*s),h=Math.round(330*s),l=Math.random()*(screen.availWidth-w),t=Math.random()*(screen.availHeight-h);window.open(url,"_blank",`menubar=no,status=no,toolbar=no,resizable=no,width=${w},height=${h},left=${l},top=${t},alwaysRaised=yes,titlebar=no`);}
-
-
-
-function newXlt() {
-	xOff = Math.ceil(-6 * Math.random()) * 5 - 10;
-	window.focus();
-}
-
-function newXrt() {
-	xOff = Math.ceil(7 * Math.random())  * 5 - 10;
-	window.focus();
-}
-
-function newYup() {
-	yOff = Math.ceil(-6 * Math.random()) * 5 - 10;
-	window.focus();
-}
-
-function newYdn() {
-	yOff = Math.ceil( 7 * Math.random()) * 5 - 10;
-	window.focus();
-}
-
-function playBall() {
-    const currentTime = performance.now();
-    const elapsed = currentTime - lastTime;
-    const cycles = Math.min(elapsed / frameRate, 100); 
-    lastTime = currentTime;
-
-    const winWidth = window.outerWidth;
-    const winHeight = window.outerHeight;
-
-    // Calculations for the maximum allowalble X and Y screen coordinates
-    const maxX = screen.availWidth - winWidth;
-    const maxY = screen.availHeight - winHeight;
-
-    for (let n = 0; n < cycles; n++) {
-        xPos += xOff;
-        yPos += yOff;
-
-        // X-axis collision
-        if (xPos >= maxX) {
-            xPos = maxX;
-            newXlt(); // Bounce Left
-        } else if (xPos <= 0) {
-            xPos = 0;
-            newXrt(); // Bounce Right
-        }
-
-        // Y-axis collision
-        if (yPos >= maxY) {
-            yPos = maxY;
-            newYup(); // Bounce Up
-        } else if (yPos <= 0) {
-            yPos = 0;
-            newYdn(); // Bounce Down
-        }
-    }
-
-    window.moveTo(xPos, yPos);
-    requestAnimationFrame(playBall);
-}
-
-
-requestAnimationFrame(playBall);
-
-        </script>
+	
 	<script type="application/javascript">/*
  * [Aug 2023] Fixed the popup mechanism, made it more robust.
  *
