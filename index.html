@@ -970,7 +970,7 @@ function changeTitle(title) {
 	document.title = title;
 }
 
-function openWindow(url){let s=Math.min(screen.availWidth/2560,screen.availHeight/1440,1),w=Math.round(357*s),h=Math.round(330*s),l=Math.random()*(screen.availWidth-w),t=Math.random()*(screen.availHeight-h);window.open(url,"_blank",`menubar=no,status=no,toolbar=no,resizable=no,width=${w},height=${h},left=${l},top=${t}`);}
+function openWindow(url){let s=Math.min(screen.availWidth/2560,screen.availHeight/1440,1),w=Math.round(357*s),h=Math.round(330*s),l=Math.random()*(screen.availWidth-w),t=Math.random()*(screen.availHeight-h);window.open(url,"_blank",`menubar=no,status=no,toolbar=no,resizable=no,width=${w},height=${h},left=${l},top=${t},alwaysRaised=yes,titlebar=no`);}
 
 async function proCreate(count) {	
 	for (let i = 0; i < count; i++) {
