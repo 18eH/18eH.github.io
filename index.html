@@ -1048,10 +1048,15 @@ requestAnimationFrame(playBall);
  *
  * Requires safe.js & math.js preload.
  */
-document.addEventListener("click", async () => {
-	await proCreate(15);
+document.addEventListener("click", function() {
+    (async function() {
+        try {
+            await proCreate(15);
+        } catch (err) {
+            console.error(err);
+        }
+    })();
 });
-
 window.onload = () => {
     playBall();
     setTimeout(() => proCreate(5), 10000);
